@@ -8,41 +8,36 @@
 </head>
 <body>
     
-    <h1> US unemployment rate analysis</h1>
+    <h1> Social Media Impact on Stock Market Volatility</h1>
 
     <h3>Overall Introduction</h3>
 
-    <p>Understanding the US unemployment rate is crucial for assessing
-        the health of the economy and the well-being of its citizens. 
-        The unemployment rate represents the percentage of people in 
-        labor force who are actively seeking employment but are unable
-        to find jobs. This metric serves as a key indicator of economic
-         performance, reflecting the availability of job opportunities 
-         and the overall level of economic activity. </p>
+    <p>For the past few decades, the world has become increasingly connected through technology. 
+        Within it, social media has expanded beyond its message-sharing origins to become a 
+        prominent source of influence in many other spheres. Social media’s potential to bear 
+        influential power over the financial markets was notably demonstrated during the 
+        Reddit-induced January 2021 GameStop and AMC share price fiascos, leading to the 
+        coining of the term “meme stock.” However, publicly traded companies are discussed 
+        all of the time on social media. Even when not on the scale of the Gamestop and AMC situation, 
+        social media-induced decisions of buying, holding, and selling are entirely possible.
+        Our question: How much power does social media really have over the stock market? 
+        How can something as regulated, technical, and concrete as the financial markets be 
+        influenced by something as simple as a social media post?
+        </p>
 
-    <p>Monitoring the unemployment rate provides insights into 
-        various aspects of the economy, such as consumer spending,
-         business confidence, and government policies' effectiveness.
-        A high unemployment rate may indicate economic downturns, 
-        leading to decreased consumer spending, reduced business 
-        investments, and potential social unrest. Conversely, 
-        a low unemployment rate signifies a robust economy with 
-        ample job opportunities, contributing to higher consumer 
-        confidence and economic growth.</p>
+    <p>Exploring social media's impact in this sphere is important because as shown with Gamestop, 
+        spiraling social media trends in the financial industry can lead to severe economic losses 
+        for solo investors and companies; which could cause economic uncertainty, increased unemployment, 
+        and recessionary movements. What started as a playful joke with Gamestop became a mass market 
+        impact that required federal action — and social media has no signs of slowing its interconnectedness and broad influence.
+    </p>
 
-    <p>Several social factors are closely related to the unemployment
-         rate. Persistent unemployment can lead to financial hardships,
-          increased poverty rates, and reduced access to essential 
-          services, such as healthcare and education. Moreover, 
-          unemployment may exacerbate existing social inequalities, 
-          disproportionately affecting marginalized communities, 
-          including minorities, youth, and individuals with lower 
-          educational attainment.</p>
-
-    <p>To learn more about the US unemployment rate and its implications,
-         you can visit the <a href="https://www.bls.gov/">Bureau of Labor Statistics website</a> or explore 
+    <p>To learn more about how social media could be influencing the stock market or things familiar with the topic,
+        you can visit <a href="https://www.cnbc.com/2013/04/25/Twitter-Trading:-8-Tweets-That-Moved-Markets.html"> 
+        this article about times when tweets had an impact on the market</a> or explore 
          analysis reports from reputable research organizations like 
-         <a href="https://www.pewresearch.org/">Pew Research Center</a>.</p>
+         <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9324505/#:~:text=The%20research%20team%20found%20that,Volatility%20Index%20(VIX)%20indicators">
+            NIH.gov</a>.</p>
 
     <h3>Introduction to the data</h3>
 
@@ -130,7 +125,7 @@
         <div class = 'container'>
             <div class = 'image'>
                 <!-- <iframe src="histogram/index.html" width="100%" height="400px" frameborder="0"></iframe>-->
-                <iframe src="histogram/finish.png" width="100%" height="400px" frameborder="0"></iframe>
+                <iframe src="avg_return_tweet.png" width="100%" height="400px" frameborder="0"></iframe>
             </div>
             <div class = 'text'>
                 <p> First, we present an overview of the unemployment rate
@@ -180,8 +175,24 @@
                 </p>
             </div>
             <div class = 'image'>
-                <img src="correlation_plot.png" width="100%" height="500px" frameborder="0"></img>
+                <img src="boxfinancial.png" width="100%" height="500px" frameborder="0"></img>
             </div>   
+        </div>
+
+        <div class = 'image'>
+            <img src="boxtech.png" width="100%" height="500px" frameborder="0"></img>
+        </div> 
+        
+        <div class = 'image'>
+            <img src="cmap.png" width="100%" height="500px" frameborder="0"></img>
+        </div>
+
+        <div class = 'image'>
+            <img src="sector.png" width="100%" height="500px" frameborder="0"></img>
+        </div>
+
+        <div class = 'image'>
+            <img src="sentimenthist.png" width="100%" height="500px" frameborder="0"></img>
         </div>
 
         <p>We have also create an interactive scatter plot so that 
@@ -204,7 +215,7 @@
         </p>
 
         <div class = 'center'>
-            <iframe src="summary.html" width="95%" height="300px" frameborder="0"></iframe>
+            <iframe src="d3scatter.html" width="95%" height="300px" frameborder="0"></iframe>
         </div>
 
         <h3>Summary and additional work</h3>
