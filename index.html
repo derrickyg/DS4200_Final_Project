@@ -96,14 +96,16 @@
 
         <h3>Overview of our data   </h3>
         
-        <div class='container'>
-            <div class='image'>
-                <img src="sentimenthist.png" width="100%" height="400px" frameborder="0"></img>
+        <div class='container' style='display: flex; width: 100%;'>
+            <div class='image' style='flex: 1;'>
+                <img src="sentimenthist.png" style='width: 100%; height: 400px;' frameborder="0">
             </div>
-            <div class='image' style='float: left;'>
-                <iframe src="avg_return_tweet.png" width="100%" height="400px" frameborder="0"></iframe>
+            <div class='image' style='flex: 1;'>
+                <iframe src="avg_return_tweet.png" style='width: 100%; height: 400px;' frameborder="0"></iframe>
             </div>
-        </div>      
+        </div>
+        
+        
 
         <p>
             Our starting point involved a plot that would give us a general overview of the data. 
@@ -167,18 +169,26 @@
             <iframe src="scatter.html" width="85%" height="550px" frameborder="0"></iframe>
         </div>
 
-        <h3>Compare MA to the other states</h3>
+        <h3>D3 Second Interactive Visualization</h3>
 
         <p>
-            Since we are in MA, thus we want to take a closer look between
-            MA and other states. We create the following interactive plot
-            such that user can choose another state to compare with MA and 
-            show the bar plot on each factors. 
+            Our last interactive visualization used D3 in order to create an interactive plot that displayed 
+            a stock's volatility alongside its polarity. We added a feature that allowed a user to choose 
+            the specific industry that they want to filter, which would then change the companies that are being
+             plotted. The size of the point indicates the level of return, and highlighting over a point allows
+              the user to see the stock name, volatility, 7-day return, and polarity value. We saw that, 
+              for tech stocks, Facebook had high volatility and positive polarity values, 
+              which is in line with our previous distribution graphs that showed Facebook 
+              and other tech stocks having high volume outliers. The color of each bubble 
+              is differentiated by the types of stocks available from the dataset that are a part of that industry.
         </p>
 
-        <div class = 'center'>
-            <iframe src="d3scatter.html" width="95%" height="300px" frameborder="0"></iframe>
+        <div class='center'>
+            <iframe src="d3scatter.html" width="100%" height="650px" frameborder="0"></iframe>
         </div>
+
+        
+        
 
         <h3>Summary and additional work</h3>
 
