@@ -94,49 +94,53 @@
             also added industries for certain stocks for aid in our visualizations.</p>
 
 
-        <h3>Overview of </h3>
+        <h3>Overview of our data   </h3>
         
-        <div class = 'container'>
-            <div class = 'image'>
-                <!-- <iframe src="histogram/index.html" width="100%" height="400px" frameborder="0"></iframe>-->
+        <div class='container'>
+            <div class='image'>
+                <img src="sentimenthist.png" width="100%" height="400px" frameborder="0"></img>
+            </div>
+            <div class='image' style='float: left;'>
                 <iframe src="avg_return_tweet.png" width="100%" height="400px" frameborder="0"></iframe>
             </div>
-            <div class = 'text'>
-                <p> First, we present an overview of the unemployment rate
-                    for all 50 states. Alaska is the one with the 
-                    highest unemployment rate, which may due to the seasonal 
-                    business in the state. The effectiveness of labor market 
-                    policies and governance structures can influence unemployment 
-                    rates. Washington, D.C., being the seat of government, may 
-                    experience fluctuations in employment related to government 
-                    spending and policies. Mississippi and Louisiana have economies 
-                    that are heavily reliant on sectors such as agriculture, 
-                    manufacturing, and energy. Economic downturns or fluctuations 
-                    in these industries can impact employment opportunities. 
-                    Connecticut, South Dakota and Virginia have the lowest 
-                    unemplyment rate. These states often have diverse economies 
-                    with strong sectors such as technology, healthcare, finance, 
-                    and tourism. A diverse economy can provide more resilience to 
-                    economic downturns.
-                </p>
-            </div>            
-        </div>
-        
-        <h3> The relationship between social media and stock volatility</h3>
+        </div>      
 
         <p>
             Our starting point involved a plot that would give us a general overview of the data. 
-            We created a baseline visualization to better understand the data and see if this is 
-            even worth pursuing, creating a histogram with the distribution of sentiment scores along 
-            the tweets, plus the mean 2, 3, and 7-day return for each sentiment value. We realized that 
-            there were tweets on both ends of opposite sentiment extremes, along with what could be 
-            potential spikes and decreases in the returns. We knew we had to continue with our analysis 
-            because there were potential trends that could be crucial to discover.
+            We created a baseline visualization to better understand the data and see if this 
+            was even worth pursuing, creating a histogram with the distribution of sentiment
+            scores along the tweets, plus the mean 2, 3, and 7-day return for each sentiment value.
+            We realized that there were tweets on both ends of opposite sentiment extremes, along 
+            with what could be potential spikes and decreases in the returns. We knew we had to 
+            continue with our analysis because there were potential trends that could be crucial 
+            if discovered.
         </p>
 
+        <h3> The relationship between unemployment rate and other social factors</h3>
+
         <div class = 'container'>
-            <div class = 'image'>
-                <img src="sentimenthist.png" width="100%" height="500px" frameborder="0"></img>
+            <div class = 'text'>
+                <p>Moreover, we also want to examine the relationship between
+                    unemployment rate and other social factors in the data. All 
+                    features are numerical thus we firts create a correlation
+                    plot to examine whether there are linear relationship between 
+                    unemployment rate with other social factors. Notice that if 
+                    the correlation is small, it only means that there is no potential
+                    linear relationship between two features. 
+                </p>
+                <p>
+                    Based on the correlation plot, among all the features, poverty 
+                    has the strongest correlation with the unemployment rate since
+                    they are both related to the economics. The percentage of single 
+                    parents is the second important feature which inidicates the 
+                    stability of family is also strongly related to the job market. 
+                    The increase of unemployment rate may also related to the increase 
+                    of violent crime and murder rate but has a negative relationship
+                    with education indicators, like the percentage of people who go to
+                    high school and college. The only variable that has no direct linear
+                    relation with the unemployment rate is Metropolitan, which means the 
+                    percent of residents living in a metropolitan area. 
+                </p>
             </div>
             <div class = 'image'>
                 <img src="boxfinancial.png" width="100%" height="500px" frameborder="0"></img>
@@ -170,6 +174,7 @@
         <div class = 'image'>
             <img src="sector.png" width="100%" height="500px" frameborder="0"></img>
         </div>
+
 
         <p>We have also create an interactive scatter plot so that 
             our users can select a couple of states within
