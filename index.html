@@ -41,12 +41,12 @@
 
     <h3>Introduction to the data</h3>
 
-    <p> Our analysis makes use of two datasets. the first data is 
-        a data set called `us_statewide_crime.csv` which contains 
-        the following crime statistics for all US states and the 
-        District of Columbia in 2010. The data has 50 rows with 9 
-        features. The detail information about the features are listed
-        in the following table:</p>  
+    <p> We used a Kaggle dataset titled “Tweet Sentiment’s Impact on Stock Returns” to conduct our analysis. This featured 862,231 rows, 
+        each corresponding to a tweet that contains the name of a publicly-traded company. There are 14 columns in the dataset that include 
+        the stock name, date of the tweet, and trading volume directly following the tweet’s publication. It also features 1, 2, 3, and 
+        7-day returns, 10 and 30-day volatility, and sentiment scores. These scores were concluded from pre-trained Long Short-Term Memory 
+        and Textblob NLP models that we used in order to process emotions and get a feel for the tweets. Below is the name and description
+        of the specific columns used in our analysis:</p>  
 
         <div class="center">
         <table class="tg">
@@ -58,40 +58,32 @@
             </thead>
             <tbody>
               <tr>
-                <td class="tg-0lax">State</td>
-                <td class="tg-0lax">State name</td>
+                <td class="tg-0lax">STOCK</td>
+                <td class="tg-0lax">The name of a publicly traded stock that was mentioned in the Tweet</td>
               </tr>
               <tr>
-                <td class="tg-0lax">Violent_Crime</td>
-                <td class="tg-0lax">Violent crime rate (per 100,000 residents)</td>
+                <td class="tg-0lax">Date</td>
+                <td class="tg-0lax">Date of tweet's publication</td>
               </tr>
               <tr>
-                <td class="tg-0lax">Murder_Rate</td>
-                <td class="tg-0lax">Murder rate (per 100,000 residents)</td>
+                <td class="tg-0lax">LAST_PRICE</td>
+                <td class="tg-0lax">The price of the stock directly following the tweet's publication </td>
               </tr>
               <tr>
-                <td class="tg-0lax">Poverty</td>
-                <td class="tg-0lax">Percent of residents below the poverty rate</td>
+                <td class="tg-0lax">x_DAY_RETURN</td>
+                <td class="tg-0lax">The stock's returns after x days of the tweet's publication</td>
               </tr>
               <tr>
-                <td class="tg-0lax">High_School</td>
-                <td class="tg-0lax">Percent of residents with a high school degree</td>
+                <td class="tg-0lax">VOLATILTY_yyD</td>
+                <td class="tg-0lax">The tweet's volatility on yy day</td>
               </tr>
               <tr>
-                <td class="tg-0lax">College</td>
-                <td class="tg-0lax">Percent of residents with a four-year college degree</td>
+                <td class="tg-0lax">LSTM_POLARITY</td>
+                <td class="tg-0lax">Sentiment score from Long Short-Term Memory model</td>
               </tr>
               <tr>
-                <td class="tg-0lax">Single_Parent</td>
-                <td class="tg-0lax">Percent of children living in single parent families</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">Unemployed</td>
-                <td class="tg-0lax">Unemployment rate</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">Metropolitan</td>
-                <td class="tg-0lax">Percent of residents living in a metropolitan area</td>
+                <td class="tg-0lax">TEXTBLOB_POLARITY</td>
+                <td class="tg-0lax">Sentiment score calculated from Textblob NLP model</td>
               </tr>
             </tbody>
             </table>
@@ -221,20 +213,20 @@
         <h3>Summary and additional work</h3>
 
         <p>
-            In this visualization analysis, we try to explore the US 
-            unemployment rate across states. We also examine the relation
-            between unemployment rate and other social factors. 
+            It was difficult to come to a definitive conclusion on the correlation between tweet polarity and stock returns
+            for a few reasons. First, There are many factors that impact a stock’s return and volatility. Outside factors 
+            such as economic factors, market rates, and performances are all contributors to the price of a stock, and our 
+            dataset was not able to factor those in.
         </p>
         <p>
-            Unfortunately, this is the 2010 data thus may be different 
-            than the current economics status. Also, unemployment rate 
-            may fluctuate seasonally thus adding a time series analysis
-            will be more informative. 
+            We only had access to tweets, whereas many other powerful media outlets could also have influence, such as Facebook 
+            or Instagram. Returns and tweets could be reversely correlated, where bad returns or high volatility prompt more tweets, 
+            while good returns may be ‘expected’ by public investors.
         </p>
 
-        <p>If you are interested in the project and want to share more
-            opinions or resource about the project, please contact:
-            Xiaoyi Yang (xiaoy.yang@northeastern.edu)
+        <p>At the individual security level, we were unable to produce a reliable model or visualize the relationship between tweets, 
+            polarity, and financial metrics. However, our data did follow expected industry-related trends and showcased some insight 
+            into the relationship certain industries may have with social media.
         </p>
 
 </body>
