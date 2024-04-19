@@ -8,50 +8,45 @@
 </head>
 <body>
     
-    <h1> US unemployment rate analysis</h1>
+    <h1> Social Media Impact on Stock Market Volatility</h1>
 
     <h3>Overall Introduction</h3>
 
-    <p>Understanding the US unemployment rate is crucial for assessing
-        the health of the economy and the well-being of its citizens. 
-        The unemployment rate represents the percentage of people in 
-        labor force who are actively seeking employment but are unable
-        to find jobs. This metric serves as a key indicator of economic
-         performance, reflecting the availability of job opportunities 
-         and the overall level of economic activity. </p>
+    <p>For the past few decades, the world has become increasingly connected through technology. 
+        Within it, social media has expanded beyond its message-sharing origins to become a 
+        prominent source of influence in many other spheres. Social media's potential to bear 
+        influential power over the financial markets was notably demonstrated during the 
+        Reddit-induced January 2021 GameStop and AMC share price fiascos, leading to the 
+        coining of the term “meme stock.” However, publicly traded companies are discussed 
+        all of the time on social media. Even when not on the scale of the Gamestop and AMC situation, 
+        social media-induced decisions of buying, holding, and selling are entirely possible.
+        Our question: How much power does social media really have over the stock market? 
+        How can something as regulated, technical, and concrete as the financial markets be 
+        influenced by something as simple as a social media post?
+        </p>
 
-    <p>Monitoring the unemployment rate provides insights into 
-        various aspects of the economy, such as consumer spending,
-         business confidence, and government policies' effectiveness.
-        A high unemployment rate may indicate economic downturns, 
-        leading to decreased consumer spending, reduced business 
-        investments, and potential social unrest. Conversely, 
-        a low unemployment rate signifies a robust economy with 
-        ample job opportunities, contributing to higher consumer 
-        confidence and economic growth.</p>
+    <p>Exploring social media's impact in this sphere is important because as shown with Gamestop, 
+        spiraling social media trends in the financial industry can lead to severe economic losses 
+        for solo investors and companies; which could cause economic uncertainty, increased unemployment, 
+        and recessionary movements. What started as a playful joke with Gamestop became a mass market 
+        impact that required federal action — and social media has no signs of slowing its interconnectedness and broad influence.
+    </p>
 
-    <p>Several social factors are closely related to the unemployment
-         rate. Persistent unemployment can lead to financial hardships,
-          increased poverty rates, and reduced access to essential 
-          services, such as healthcare and education. Moreover, 
-          unemployment may exacerbate existing social inequalities, 
-          disproportionately affecting marginalized communities, 
-          including minorities, youth, and individuals with lower 
-          educational attainment.</p>
-
-    <p>To learn more about the US unemployment rate and its implications,
-         you can visit the <a href="https://www.bls.gov/">Bureau of Labor Statistics website</a> or explore 
+    <p>To learn more about how social media could be influencing the stock market or things familiar with the topic,
+        you can visit <a href="https://www.cnbc.com/2013/04/25/Twitter-Trading:-8-Tweets-That-Moved-Markets.html"> 
+        this article about times when tweets had an impact on the market</a> or explore 
          analysis reports from reputable research organizations like 
-         <a href="https://www.pewresearch.org/">Pew Research Center</a>.</p>
+         <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9324505/#:~:text=The%20research%20team%20found%20that,Volatility%20Index%20(VIX)%20indicators">
+            NIH.gov</a>.</p>
 
     <h3>Introduction to the data</h3>
 
-    <p> Our analysis makes use of two datasets. the first data is 
-        a data set called `us_statewide_crime.csv` which contains 
-        the following crime statistics for all US states and the 
-        District of Columbia in 2010. The data has 50 rows with 9 
-        features. The detail information about the features are listed
-        in the following table:</p>  
+    <p> We used a Kaggle dataset titled “Tweet Sentiment’s Impact on Stock Returns” to conduct our analysis. This featured 862,231 rows, 
+        each corresponding to a tweet that contains the name of a publicly-traded company. There are 14 columns in the dataset that include 
+        the stock name, date of the tweet, and trading volume directly following the tweet’s publication. It also features 1, 2, 3, and 
+        7-day returns, 10 and 30-day volatility, and sentiment scores. These scores were concluded from pre-trained Long Short-Term Memory 
+        and Textblob NLP models that we used in order to process emotions and get a feel for the tweets. Below is the name and description
+        of the specific columns used in our analysis:</p>  
 
         <div class="center">
         <table class="tg">
@@ -63,167 +58,163 @@
             </thead>
             <tbody>
               <tr>
-                <td class="tg-0lax">State</td>
-                <td class="tg-0lax">State name</td>
+                <td class="tg-0lax">STOCK</td>
+                <td class="tg-0lax">The name of a publicly traded stock that was mentioned in the Tweet</td>
               </tr>
               <tr>
-                <td class="tg-0lax">Violent_Crime</td>
-                <td class="tg-0lax">Violent crime rate (per 100,000 residents)</td>
+                <td class="tg-0lax">Date</td>
+                <td class="tg-0lax">Date of tweet's publication</td>
               </tr>
               <tr>
-                <td class="tg-0lax">Murder_Rate</td>
-                <td class="tg-0lax">Murder rate (per 100,000 residents)</td>
+                <td class="tg-0lax">LAST_PRICE</td>
+                <td class="tg-0lax">The price of the stock directly following the tweet's publication </td>
               </tr>
               <tr>
-                <td class="tg-0lax">Poverty</td>
-                <td class="tg-0lax">Percent of residents below the poverty rate</td>
+                <td class="tg-0lax">x_DAY_RETURN</td>
+                <td class="tg-0lax">The stock's returns after x days of the tweet's publication</td>
               </tr>
               <tr>
-                <td class="tg-0lax">High_School</td>
-                <td class="tg-0lax">Percent of residents with a high school degree</td>
+                <td class="tg-0lax">VOLATILTY_yyD</td>
+                <td class="tg-0lax">The tweet's volatility on yy day</td>
               </tr>
               <tr>
-                <td class="tg-0lax">College</td>
-                <td class="tg-0lax">Percent of residents with a four-year college degree</td>
+                <td class="tg-0lax">LSTM_POLARITY</td>
+                <td class="tg-0lax">Sentiment score from Long Short-Term Memory model</td>
               </tr>
               <tr>
-                <td class="tg-0lax">Single_Parent</td>
-                <td class="tg-0lax">Percent of children living in single parent families</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">Unemployed</td>
-                <td class="tg-0lax">Unemployment rate</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">Metropolitan</td>
-                <td class="tg-0lax">Percent of residents living in a metropolitan area</td>
+                <td class="tg-0lax">TEXTBLOB_POLARITY</td>
+                <td class="tg-0lax">Sentiment score calculated from Textblob NLP model</td>
               </tr>
             </tbody>
             </table>
         </div>
-        <p>Meanwhile, we also believe that the geographical 
-            information is important when evaluating the unemployment
-            rate. Therefore, we also make use of geographical information 
-            on <a href="https://www.naturalearthdata.com/downloads/">Natural Earth</a>. 
-            The website provides the geographical information for making maps for US states. 
+
+        <p>We filtered out stocks that had a TextBlob sentiment score between -0.05 and 0.05 - these
+            tweets were not deemed to have a strong sentiment in either direction. Furthermore, we
+            also added industries for certain stocks for aid in our visualizations.</p>
+
+
+        <h3>Overview of our data   </h3>
+        
+        <div class='container' style='display: flex; width: 100%;'>
+            <div class='image' style='flex: 1;'>
+                <img src="sentimenthist.png" style='width: 100%; height: 400px;' frameborder="0">
+            </div>
+            <div class='image' style='flex: 1;'>
+                <iframe src="avg_return_tweet.png" style='width: 100%; height: 400px;' frameborder="0"></iframe>
+            </div>
+        </div>
+        
+        
+
+        <p>
+            Our starting point involved a plot that would give us a general overview of the data. 
+            We created a baseline visualization to better understand the data and see if this 
+            was even worth pursuing, creating a histogram with the distribution of sentiment
+            scores along the tweets, plus the mean 2, 3, and 7-day return for each sentiment value.
+            We realized that there were tweets on both ends of opposite sentiment extremes, along 
+            with what could be potential spikes and decreases in the returns. We knew we had to 
+            continue with our analysis because there were potential trends that could be crucial 
+            if discovered.
         </p>
 
-        <p>To make a better data visualization, we remove the Alaska and Hawaii
-            from the data. Following is an interactive map for the 
-            lower 48 states in US. User can zoom in the map. The color
-            indicates the unemployment rate for each state. When click any 
-            state, other social factors will be revealed for the state. </p>
+        <h3> Tech vs. Financial Stocks</h3>
 
-            <div class = 'center'>
-                <iframe src="map.html" width="80%" height="400px" frameborder="0"></iframe>
-            </div>
-            
-            <p>In general, west coast states tend to have higher 
-                unemployment rate. On the east coast, West virginia 
-                and New York state tend to have higher unemplyment rate
-                than the others. In the south, Mississippi and Louisiana
-                are the ones with the much higher unemplyment rate.
+        <p>We decided to hone in on the tech and financial stocks for our next steps. What we realized was 
+            that there was more “consistency” within the financial stocks, having a wide box plot whereas the 
+            tech stocks had heavy outliers of higher volatility. Due to that, financial stocks have considerably 
+            more predictability when it comes to volatility. Given that Facebook is heavily tweeted about, 
+            as seen in a different visualization, it has extreme outliers of high volatility.
             </p>
 
-        <h3>Overview of the Unemployment rate</h3>
-        
-        <div class = 'container'>
+        <div class = 'image'>
+                <img src="boxtech.png" width="80%" height="500px" frameborder="0"></img>
+            </div> 
             <div class = 'image'>
-                <!-- <iframe src="histogram/index.html" width="100%" height="400px" frameborder="0"></iframe>-->
-                <iframe src="histogram/finish.png" width="100%" height="400px" frameborder="0"></iframe>
-            </div>
-            <div class = 'text'>
-                <p> First, we present an overview of the unemployment rate
-                    for all 50 states. Alaska is the one with the 
-                    highest unemployment rate, which may due to the seasonal 
-                    business in the state. The effectiveness of labor market 
-                    policies and governance structures can influence unemployment 
-                    rates. Washington, D.C., being the seat of government, may 
-                    experience fluctuations in employment related to government 
-                    spending and policies. Mississippi and Louisiana have economies 
-                    that are heavily reliant on sectors such as agriculture, 
-                    manufacturing, and energy. Economic downturns or fluctuations 
-                    in these industries can impact employment opportunities. 
-                    Connecticut, South Dakota and Virginia have the lowest 
-                    unemplyment rate. These states often have diverse economies 
-                    with strong sectors such as technology, healthcare, finance, 
-                    and tourism. A diverse economy can provide more resilience to 
-                    economic downturns.
-                </p>
-            </div>            
-        </div>
-        
-        <h3> The relationship between unemployment rate and other social factors</h3>
-
-        <div class = 'container'>
-            <div class = 'text'>
-                <p>Moreover, we also want to examine the relationship between
-                    unemployment rate and other social factors in the data. All 
-                    features are numerical thus we firts create a correlation
-                    plot to examine whether there are linear relationship between 
-                    unemployment rate with other social factors. Notice that if 
-                    the correlation is small, it only means that there is no potential
-                    linear relationship between two features. 
-                </p>
-                <p>
-                    Based on the correlation plot, among all the features, poverty 
-                    has the strongest correlation with the unemployment rate since
-                    they are both related to the economics. The percentage of single 
-                    parents is the second important feature which inidicates the 
-                    stability of family is also strongly related to the job market. 
-                    The increase of unemployment rate may also related to the increase 
-                    of violent crime and murder rate but has a negative relationship
-                    with education indicators, like the percentage of people who go to
-                    high school and college. The only variable that has no direct linear
-                    relation with the unemployment rate is Metropolitan, which means the 
-                    percent of residents living in a metropolitan area. 
-                </p>
-            </div>
-            <div class = 'image'>
-                <img src="correlation_plot.png" width="100%" height="500px" frameborder="0"></img>
+                <img src="boxfinancial.png" width="80%" height="500px" frameborder="0"></img>
             </div>   
+
+        <p>
+            Based on the scatter plot below that plots the sentiment of a tweet compared to
+            its 7-day return, return doesn’t increase alongside sentiment in absolute terms. However, 
+            the spread of returns does increase with an increase in sentiment. We used a 
+            color map so that the prevalence of data points would be more visible to a user, 
+            given that there were over 800,000 tweets in the dataset to visualize.
+        </p>
+        
+        <div class = 'image'>
+            <img src="cmap.png" width="100%" height="500px" frameborder="0"></img>
         </div>
 
-        <p>We have also create an interactive scatter plot so that 
-            our users can select a couple of states within
-            a certain range of unemployment rate and to see how the 
-            other factors may be related here. 
+        <p>Next, we created a graph that tracked how frequent each stock appeared in the tweet data and 
+            compiled the top 10 stocks. Ford was seen the most with a count of over 20,000 tweets written 
+            about the it, followed by Facebook and Google, which are two technology companies. Ford was 
+            the only company from the automobile sector to make the top 10, and Next was the only industrial.
+            The other companies were all consumer or entertainment focused — given the prominence of companies 
+            like Amazon, Netflix, and Disney — along with social media mention, showing that companies with direct 
+            consumer-facing interfaces or products were spoken about the most.</p>
+
+        <div class = 'image'>
+            <img src="sector.png" width="100%" height="500px" frameborder="0"></img>
+        </div>
+
+
+        <p>Our first interactive visualization uses Altair to create an interactive plot that displays both tweet 
+            sentiment as well as the return over time. We added a dropdown feature where the user can select any stock 
+            ticker from the data set and view the data for that specific stock. On the two line graphs, the user can 
+            follow how the stock return is responding based on the polarity over time.  Examining the line graphs depicting 
+            sentiment polarity and stock return over time, users can discern trends and patterns that offer valuable insights 
+            into market behavior. For instance, in the case of BlackRock, observable fluctuations in textblob polarity align 
+            closely with corresponding fluctuations in stock return. This suggests a potential relationship between sentiment 
+            expressed in tweets and market performance for this particular stock. It was too large to include in the website 
+            and can be found in the zip package submission.
         </p>
 
         <div class = 'center'>
             <iframe src="scatter.html" width="85%" height="550px" frameborder="0"></iframe>
         </div>
 
-        <h3>Compare MA to the other states</h3>
+        <h3>D3 Second Interactive Visualization</h3>
 
         <p>
-            Since we are in MA, thus we want to take a closer look between
-            MA and other states. We create the following interactive plot
-            such that user can choose another state to compare with MA and 
-            show the bar plot on each factors. 
+            Our last interactive visualization used D3 in order to create an interactive plot that displayed 
+            a stock's volatility alongside its polarity. We added a feature that allowed a user to choose 
+            the specific industry that they want to filter, which would then change the companies that are being
+             plotted. The size of the point indicates the level of return, and highlighting over a point allows
+              the user to see the stock name, volatility, 7-day return, and polarity value. We saw that, 
+              for tech stocks, Facebook had high volatility and positive polarity values, 
+              which is in line with our previous distribution graphs that showed Facebook 
+              and other tech stocks having high volume outliers. The color of each bubble 
+              is differentiated by the types of stocks available from the dataset that are a part of that industry.
         </p>
 
-        <div class = 'center'>
-            <iframe src="summary.html" width="95%" height="300px" frameborder="0"></iframe>
+        <div class='center'>
+            <iframe src="d3scatter.html" width="100%" height="650px" frameborder="0"></iframe>
         </div>
+
+        
+        
 
         <h3>Summary and additional work</h3>
 
         <p>
-            In this visualization analysis, we try to explore the US 
-            unemployment rate across states. We also examine the relation
-            between unemployment rate and other social factors. 
-        </p>
-        <p>
-            Unfortunately, this is the 2010 data thus may be different 
-            than the current economics status. Also, unemployment rate 
-            may fluctuate seasonally thus adding a time series analysis
-            will be more informative. 
+            It was difficult to come to a definitive conclusion on the correlation between tweet polarity and stock returns
+            for a few reasons. 
         </p>
 
-        <p>If you are interested in the project and want to share more
-            opinions or resource about the project, please contact:
-            Xiaoyi Yang (xiaoy.yang@northeastern.edu)
+        <p>First, There are many factors that impact a stock’s return and volatility. Outside factors 
+            such as economic factors, market rates, and performances are all contributors to the price of a stock, and our 
+            dataset was not able to factor those in.
+        </p>
+        <p>
+            We only had access to tweets, whereas many other powerful media outlets could also have influence, such as Facebook 
+            or Instagram. Returns and tweets could be reversely correlated, where bad returns or high volatility prompt more tweets, 
+            while good returns may be ‘expected’ by public investors.
+        </p>
+
+        <p>At the individual security level, we were unable to produce a reliable model or visualize the relationship between tweets, 
+            polarity, and financial metrics. However, our data did follow expected industry-related trends and showcased some insight 
+            into the relationship certain industries may have with social media.
         </p>
 
 </body>
